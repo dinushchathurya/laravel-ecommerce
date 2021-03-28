@@ -52,4 +52,16 @@ $app->singleton(
 |
 */
 
+$app->withFacades();
+
+$app->withEloquent();
+
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+]);
+
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
+
 return $app;
